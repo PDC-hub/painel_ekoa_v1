@@ -1,0 +1,24 @@
+{
+  "name": "naturequest-api",
+  "version": "1.0.0",
+  "description": "Azure Functions API for NatureQuest",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "clean": "rimraf dist",
+    "prestart": "npm run clean && npm run build",
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "@azure/functions": "^4.0.0",
+    "@azure/identity": "^4.0.0",
+    "mssql": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/mssql": "^9.1.5",
+    "@types/node": "20.x",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.3.0"
+  }
+}

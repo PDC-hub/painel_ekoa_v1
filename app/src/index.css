@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Steampunk + Indigenous Color System */
+    --copper-primary: 30 45% 46%;
+    --bronze-dark: 28 26% 22%;
+    --brass-accent: 46 65% 52%;
+    --steam-white: 40 33% 94%;
+    --rust-red: 25 76% 31%;
+    --deep-forest: 120 20% 13%;
+    --terracotta: 28 57% 53%;
+    --charcoal: 30 25% 13%;
+    --gold-glow: 51 100% 50%;
+    --copper-light: 28 55% 77%;
+    
+    /* Background Colors */
+    --bg-primary: 24 22% 8%;
+    --bg-secondary: 28 24% 14%;
+    --bg-card: 28 23% 18%;
+    
+    /* Text Colors */
+    --text-primary: 40 33% 94%;
+    --text-secondary: 38 30% 68%;
+    --text-muted: 30 20% 45%;
+    
+    /* Semantic Colors */
+    --xp-gold: 51 100% 50%;
+    --success: 80 61% 34%;
+    --warning: 43 74% 49%;
+    --error: 0 100% 27%;
+    --info: 207 44% 49%;
+    
+    /* shadcn overrides */
+    --background: 24 22% 8%;
+    --foreground: 40 33% 94%;
+    --card: 28 23% 18%;
+    --card-foreground: 40 33% 94%;
+    --popover: 28 23% 18%;
+    --popover-foreground: 40 33% 94%;
+    --primary: 30 45% 46%;
+    --primary-foreground: 40 33% 94%;
+    --secondary: 28 24% 14%;
+    --secondary-foreground: 40 33% 94%;
+    --muted: 28 24% 14%;
+    --muted-foreground: 30 20% 45%;
+    --accent: 46 65% 52%;
+    --accent-foreground: 24 22% 8%;
+    --destructive: 0 100% 27%;
+    --destructive-foreground: 40 33% 94%;
+    --border: 30 45% 30%;
+    --input: 28 24% 14%;
+    --ring: 46 65% 52%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Crimson Text', Georgia, serif;
+    background-color: #1A1510;
+    background-image: 
+      radial-gradient(ellipse at 20% 80%, rgba(184, 115, 51, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B87333' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel Decorative', 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  
+  code, pre, .mono {
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+  }
+}
+
+@layer components {
+  /* Steampunk Card Style */
+  .steampunk-card {
+    @apply relative rounded-xl p-6;
+    background: linear-gradient(135deg, #3D3020 0%, #2D2418 100%);
+    border: 2px solid rgba(184, 115, 51, 0.4);
+    box-shadow: 
+      0 8px 16px rgba(0,0,0,0.4),
+      inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+  
+  .steampunk-card::before,
+  .steampunk-card::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #D4AF37;
+  }
+  
+  .steampunk-card::before { 
+    top: -2px; 
+    left: -2px; 
+    border-right: 0; 
+    border-bottom: 0; 
+  }
+  
+  .steampunk-card::after { 
+    bottom: -2px; 
+    right: -2px; 
+    border-left: 0; 
+    border-top: 0; 
+  }
+  
+  /* Primary Button */
+  .btn-primary {
+    @apply relative px-6 py-3 rounded-lg font-semibold text-sm uppercase tracking-wider;
+    background: linear-gradient(180deg, #B87333 0%, #8B5A2B 100%);
+    border: 2px solid #D4AF37;
+    color: #F5F0E8;
+    font-family: 'Cinzel Decorative', serif;
+    box-shadow: 
+      0 4px 6px rgba(0,0,0,0.3),
+      inset 0 1px 0 rgba(255,255,255,0.1),
+      0 0 15px rgba(184, 115, 51, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(180deg, #D4AF37 0%, #B87333 100%);
+    box-shadow: 
+      0 6px 12px rgba(0,0,0,0.4),
+      0 0 25px rgba(212, 175, 55, 0.5);
+    transform: translateY(-2px);
+  }
+  
+  /* Secondary Button */
+  .btn-secondary {
+    @apply px-6 py-3 rounded-lg font-medium text-sm;
+    background: transparent;
+    border: 2px solid #B87333;
+    color: #C9B896;
+    font-family: 'Crimson Text', serif;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-secondary:hover {
+    background: rgba(184, 115, 51, 0.1);
+    border-color: #D4AF37;
+    color: #F5F0E8;
+  }
+  
+  /* Danger Button */
+  .btn-danger {
+    @apply px-6 py-3 rounded-lg font-semibold text-sm uppercase tracking-wider;
+    background: linear-gradient(180deg, #8B0000 0%, #5C0000 100%);
+    border: 2px solid #A52A2A;
+    color: #F5F0E8;
+    font-family: 'Cinzel Decorative', serif;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-danger:hover {
+    background: linear-gradient(180deg, #A52A2A 0%, #8B0000 100%);
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
+  }
+  
+  /* XP Progress Bar */
+  .xp-bar {
+    @apply relative h-6 rounded-full overflow-hidden;
+    background: rgba(26, 21, 16, 0.8);
+    border: 2px solid #B87333;
+  }
+  
+  .xp-bar-fill {
+    @apply h-full rounded-full;
+    background: linear-gradient(90deg, #B87333 0%, #FFD700 50%, #B87333 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+    transition: width 0.5s ease;
+  }
+  
+  /* Rarity Styles */
+  .rarity-common { border-color: #8B7355; box-shadow: 0 0 10px rgba(139, 115, 85, 0.3); }
+  .rarity-uncommon { border-color: #6B8E23; box-shadow: 0 0 12px rgba(107, 142, 35, 0.35); }
+  .rarity-rare { border-color: #4682B4; box-shadow: 0 0 15px rgba(70, 130, 180, 0.4); }
+  .rarity-epic { border-color: #9932CC; box-shadow: 0 0 20px rgba(153, 50, 204, 0.5); }
+  .rarity-legendary { border-color: #FFD700; box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
+  
+  /* Input Fields */
+  .steampunk-input {
+    @apply w-full px-4 py-3 rounded-lg text-sm;
+    background: rgba(26, 21, 16, 0.8);
+    border: 2px solid rgba(184, 115, 51, 0.4);
+    color: #F5F0E8;
+    font-family: 'Crimson Text', serif;
+    transition: all 0.3s ease;
+  }
+  
+  .steampunk-input:focus {
+    border-color: #D4AF37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    outline: none;
+  }
+  
+  .steampunk-input::placeholder {
+    color: #8B7355;
+  }
+  
+  /* Badge Styles */
+  .badge-xp {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold;
+    background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+    border: 2px solid #F5F0E8;
+    color: #1A1510;
+    font-family: 'Share Tech Mono', monospace;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  }
+  
+  .badge-level {
+    @apply inline-flex items-center px-4 py-2 rounded-lg text-lg font-bold;
+    background: linear-gradient(135deg, #B87333 0%, #8B4513 100%);
+    border: 2px solid #D4AF37;
+    color: #F5F0E8;
+    font-family: 'Cinzel Decorative', serif;
+  }
+  
+  /* Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(26, 21, 16, 0.5);
+    border-radius: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #B87333 0%, #8B4513 100%);
+    border-radius: 4px;
+    border: 1px solid #1A1510;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #D4AF37 0%, #B87333 100%);
+  }
+}
+
+@layer utilities {
+  /* Gear Animation */
+  .animate-gear {
+    animation: rotate 10s linear infinite;
+  }
+  
+  .animate-gear-reverse {
+    animation: rotate 15s linear infinite reverse;
+  }
+  
+  /* Glow Effects */
+  .glow-gold {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  }
+  
+  .glow-copper {
+    box-shadow: 0 0 20px rgba(184, 115, 51, 0.4);
+  }
+  
+  .glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+  
+  /* Steam Effect */
+  .steam-effect {
+    animation: steam-rise 4s ease-in-out infinite;
+  }
+  
+  /* Shimmer for XP bar */
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+  
+  /* Text Gradient */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B87333 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Pattern Overlay */
+  .pattern-indigenous {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23B87333' fill-opacity='0.05'%3E%3Cpath d='M20 0L0 20h10L20 10l10 10h10L20 0zM0 30l20-20 20 20h-10L20 20 10 30H0z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.8); }
+}
+
+@keyframes steam-rise {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+  50% { transform: translateY(-20px) scale(1.1); opacity: 0.1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
